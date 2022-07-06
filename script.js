@@ -1,7 +1,7 @@
 //get list of 100 pictures
 fetch(`https://picsum.photos/v2/list?page=2&limit=100`)
   .then((response) => {
-    //look into further: should you be using a POST request? to post the images on the webpage?
+  
     return response.json();
   })
   .then((responseJson) => {
@@ -17,7 +17,7 @@ fetch(`https://picsum.photos/v2/list?page=2&limit=100`)
       img.style.paddingLeft = "100em";
       photos.appendChild(img);
 
-      //addd the photo information to the photos
+      //add the photo information to the photos
       const information = document.getElementById("photos");
       let info = document.createElement("h1");
       info.textContent = `${responseJson[i].id} ` + responseJson[i].author;
@@ -28,6 +28,7 @@ fetch(`https://picsum.photos/v2/list?page=2&limit=100`)
 //get random photo
 const form = document.getElementById("form");
 const random = Math.floor(Math.random() * 1500);
+//event listener when you submit the buttom 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   let url = `https://picsum.photos/id/${random}/200/300`;
